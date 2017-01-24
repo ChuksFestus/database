@@ -39,8 +39,8 @@ app.use(function(req, res, next) {
 });
 
 //// Initialize Passport
-//var initPassport = require('./passport-init');
-//initPassport(passport);
+var initPassport = require('./passport-init');
+initPassport(passport);
 
 // error handlers
 
