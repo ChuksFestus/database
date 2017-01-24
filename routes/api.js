@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 //Used for routes that must be authenticated.
-function isAuthenticated (req, res, next) {
+/*function isAuthenticated (req, res, next) {
 	// if user is authenticated in the session, call the next() to call the next request handler 
 	// Passport adds this method to request object. A middleware is allowed to add properties to
 	// request and response objects
@@ -17,10 +17,10 @@ function isAuthenticated (req, res, next) {
 
 	// if the user is not authenticated then redirect him to the login page
 	return res.redirect('/#login');
-};
+};*/
 
 //Register the authentication middleware
-router.use('/posts', isAuthenticated);
+//router.use('/posts', isAuthenticated);
 
 //api for all posts
 router.route('/posts')
@@ -41,17 +41,17 @@ router.route('/posts')
 //api for a specfic post
 router.route('/posts/:id')
 	
-	//create
+	//updates post
 	.put(function(req,res){
 		return res.send({message:'TODO modify an existing post by using param ' + req.param.id});
 	})
-
+	// returns post
 	.get(function(req,res){
 		return res.send({message:'TODO get an existing post by using param ' + req.param.id});
 	})
-
+	//delete post
 	.delete(function(req,res){
-		return res.send({message:'TODO delete an existing post by using param ' + req.param.id})
+		return res.send({message:'TODO delete an existing post by using param ' + req.param.id});
 	});
 
 module.exports = router;
